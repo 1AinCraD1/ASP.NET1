@@ -1,0 +1,27 @@
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+// Маршрут і обробник запиту
+app.MapGet("/api/company", () =>
+{
+    // Екземпляр класу
+    var company = new Company
+    {
+        Name = "Molten Gear",
+        Address = "Omotesando street, Tokyo, Japan",
+        EstablishedYear = 2005,
+        Employees = 150
+    };
+
+    return Results.Ok(company);
+});
+
+app.Run();
+
+public class Company
+{
+    public string Name { get; set; }
+    public string Address { get; set; }
+    public int EstablishedYear { get; set; }
+    public int Employees { get; set; }
+}
