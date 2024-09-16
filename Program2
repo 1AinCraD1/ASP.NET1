@@ -1,14 +1,10 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-// Маршрут і обробник запиту
 app.MapGet("/api/company", () =>
 {
-    // Екземпляр класу
     var random = new Random();
-
     int randomNumber = random.Next(0, 101);
-
     return Results.Ok(new { RandomNumber = randomNumber });
 });
 
