@@ -1,10 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-// Маршрут і обробник запиту
 app.MapGet("/api/company", () =>
 {
-    // Екземпляр класу
     var company = new Company
     {
         Name = "Molten Gear",
@@ -12,7 +10,6 @@ app.MapGet("/api/company", () =>
         EstablishedYear = 2005,
         Employees = 150
     };
-
     return Results.Ok(company);
 });
 
